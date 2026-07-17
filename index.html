@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Wasted </title>
+<meta name="description" content="Wasted — test page: 4 cases, 4 frames, two top sections." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Italiana&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23f3ead7'/><text x='50%25' y='58%25' text-anchor='middle' font-family='serif' font-size='40' fill='%23485a3c'>W</text></svg>" />
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<header class="nav">
+  <button class="nav__menu" aria-label="Menu" id="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="nav__logo" href="#top" aria-label="Wasted home">
+    <span class="nav__logo-mark">Wasted</span>
+    <span class="nav__logo-sub">Room Accessories</span>
+  </a>
+  <button class="nav__cart" aria-label="Cart" id="navCart">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+    <span class="nav__cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Test page · 2026</p>
+    <h1 class="hero__title">Wasted.</h1>
+    <p class="hero__lede">4 cases · 4 frames · one room at a time.</p>
+    <a href="#collections" class="hero__cta">Shop now</a>
+  </div>
+</section>
+
+<!-- ===== THREE TOP SECTIONS: CASES + FRAMES + FLAG ===== -->
+<section class="collections" id="collections">
+  <h2 class="collections__title">COLLECTIONS</h2>
+  <div class="collections__pair">
+    <a href="#casesSection" class="collection">
+      <div class="collection__circle">
+        <img src="case1.jpg" alt="Phone cases" />
+      </div>
+      <h3 class="collection__label">CASES</h3>
+    </a>
+    <a href="#framesSection" class="collection">
+      <div class="collection__circle">
+        <img src="frame1.jpg" alt="Framed prints" />
+      </div>
+      <h3 class="collection__label">FRAMES</h3>
+    </a>
+    <a href="#flagSection" class="collection">
+      <div class="collection__circle">
+        <img src="frame2.jpg" alt="Country flag" />
+      </div>
+      <h3 class="collection__label">FLAG</h3>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FRAMES BELOW ===== -->
+<section class="frames-section" id="framesSection">
+  <header class="frames-section__head">
+    <h2 class="section-title">FRAMES</h2>
+    <p class="section-sub">The same 4 framed prints, ready to hang.</p>
+  </header>
+  <div class="frames-section__grid" id="framesGrid">
+    <img src="frame1.jpg" alt="ronaldo">
+    <img src="frame2.jpg" alt="ronaldo">
+    <img src="frame3.jpg" alt="ronaldo">
+    <img src="frame4.jpg" alt="ronaldo">
+  </div>
+</section>
+
+<!-- ===== CASES BELOW ===== -->
+<section class="cases-section" id="casesSection">
+  <header class="cases-section__head">
+    <h2 class="section-title">CASES</h2>
+    <p class="section-sub">4 phone cases · Android 150 EGP · iPhone 180 EGP</p>
+  </header>
+  <div class="cases-section__grid" id="casesGrid"></div>
+</section>
+
+<!-- ===== FLAG BELOW ===== -->
+<section class="flag-section" id="flagSection">
+  <header class="flag-section__head">
+    <h2 class="section-title">FLAG</h2>
+    <p class="section-sub">Country-themed prints and accessories.</p>
+  </header>
+  <div class="flag-section__body">
+    <p>This is the third category. Drop in flag-themed products or content here.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <h3 class="footer__title">Wasted.</h3>
+      <p>Room accessories for the spaces you live in.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#casesSection">Cases</a>
+      <a href="#framesSection">Frames</a>
+      <a href="#flagSection">Flag</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Cairo, Egypt</p>
+      <p>wasted.store@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer__bottom">© 2026 Wasted · All rights reserved.</div>
+</footer>
+
+<!-- ===== STICKY CART BAR ===== -->
+<div class="cartbar" id="cartbar" hidden>
+  <span class="cartbar__star">★</span>
+  <span class="cartbar__msg" id="cartbarMsg">Add items to unlock discounts</span>
+  <button class="cartbar__btn" id="cartbarOpen">View cart</button>
+</div>
+
+<!-- ===== CART DRAWER ===== -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__panel" role="dialog" aria-label="Shopping cart">
+    <header class="drawer__head">
+      <h3>Your cart</h3>
+      <button class="iconbtn" id="drawerClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="drawer__items" id="drawerItems"></div>
+    <footer class="drawer__foot">
+      <div class="drawer__row">
+        <span>Subtotal</span>
+        <strong id="drawerTotal">0 EGP</strong>
+      </div>
+      <button class="btn btn--solid btn--block" id="checkoutBtn">Checkout</button>
+    </footer>
+  </div>
+  <div class="drawer__scrim" id="drawerScrim"></div>
+</aside>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<aside class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal__panel" role="dialog" aria-label="Checkout">
+    <header class="modal__head">
+      <h3>Checkout</h3>
+      <button class="iconbtn" id="checkoutClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <form class="modal__body" id="checkoutForm">
+      <div class="form-grid">
+        <label>
+          <span>Full name *</span>
+          <input required name="name" placeholder="Your name" />
+        </label>
+        <label>
+          <span>Phone *</span>
+          <input required name="phone" placeholder="01xxxxxxxxx" inputmode="tel" />
+        </label>
+        <label class="full">
+          <span>Email (optional)</span>
+          <input type="email" name="email" placeholder="you@example.com" />
+        </label>
+        <label class="full">
+          <span>Delivery address *</span>
+          <input required name="address" placeholder="Street, building, area, city" />
+        </label>
+        <label class="full">
+          <span>Notes</span>
+          <textarea name="notes" rows="2" placeholder="Anything we should know?"></textarea>
+        </label>
+      </div>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <button type="submit" class="btn btn--solid btn--block">Confirm order</button>
+      <p class="checkout-fine">By confirming, you agree to be contacted on the phone number above. We'll send your order to our team on Telegram.</p>
+    </form>
+  </div>
+  <div class="drawer__scrim" id="checkoutScrim"></div>
+</aside>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast" hidden></div>
+
+<!-- ===== CONFIG (Telegram bot) ===== -->
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
