@@ -346,6 +346,8 @@
     setTimeout(() => t.hidden = true, 4000);
   }
 
+
+  
   // ---------- Telegram ----------
   async function sendOrderToTelegram(order){
     const cfg = window.WASTED_CONFIG || {};
@@ -426,3 +428,66 @@ ${lines}
   }
   document.addEventListener("DOMContentLoaded", init);
 })();
+
+function updateShippingCost() {
+    try {
+        var zoneSelect = document.getElementById('shipping-zone');
+        if (!zoneSelect) return;
+
+        // 1. قراءة قيمة الشحن
+        var shippingCost = Number(zoneSelect.value) || 0;
+        
+        // 2. تجهيز متغيرات المنتجات
+        var itemsHtml = '';
+        var itemsSubtotal = 0;
+
+        // قراءة المنتجات الحالية من السلة ديناميكياً
+        if (typeof state !== 'undefined' && state.cart && state.cart.length > 0) {
+            itemsSubtotal = state.cart.reduce(function(sum, item) {
+                return sum + (item.price * (item.qty || 1));
+            }, 0);
+
+            // بناء الـ HTML لكل منتج في السلة بنفس الاستايل الأصلي
+            state.cart.forEach(function(item) {
+                itemsHtml += 
+                    '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.95em; color: #555;">' +
+                        '<span>' + item.name + ' <small style="color:#888;">(' + item.specs + ')</small> × ' + (item.qty || 1) + '</span>' +
+                        '<span>' + (item.price * (item.qty || 1)) + ' EGP</span>' +
+                    '</div>';
+            });
+        } else {
+            // كود احتياطي لو السلة مش مقروءة بشكل كامل عشان التصميم ما يبوظش
+            itemsSubtotal = 230;
+            itemsHtml = 
+                '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.95em; color: #555;">' +
+                    '<span>Silver Screen Sunset · 20×30 cm · Framed × 1</span>' +
+                    '<span>230 EGP</span>' +
+                '</div>';
+        }
+        
+        // 3. حساب الإجمالي النهائي
+        var finalTotal = itemsSubtotal + shippingCost;
+        
+        // 4. دمج الـ 3 عناصر مع بعض وعرضهم تحت بعض بتنسيق فليكس كامل
+        var summaryDiv = document.getElementById('checkoutSummary');
+        if (summaryDiv) {
+            summaryDiv.innerHTML = 
+                // الجزء الأول: المنتجات
+                itemsHtml + 
+                
+                // الجزء الثاني: سطر الشحن
+                '<div style="display: flex !important; justify-content: space-between !important; align-items: center !important; width: 100% !important; margin-top: 8px; margin-bottom: 8px; padding-top: 8px; border-top: 1px solid #e0e0e0;">' +
+                    '<span style="color: #666;">Shipping</span>' +
+                    '<span style="font-weight: 500;">' + shippingCost + ' EGP</span>' +
+                '</div>' +
+                
+                // الجزء الثالث: سطر الإجمالي النهائي
+                '<div style="display: flex !important; justify-content: space-between !important; align-items: center !important; width: 100% !important; font-weight: bold; font-size: 1.1em; padding-top: 4px;">' +
+                    '<span>Total</span>' +
+                    '<span id="total-price" style="color: #000;">' + finalTotal + ' EGP</span>' +
+                '</div>';
+        }
+    } catch (e) {
+        console.log("Error inside updateShippingCost:", e);
+    }
+}

@@ -9,7 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Italiana&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23f3ead7'/><text x='50%25' y='58%25' text-anchor='middle' font-family='serif' font-size='40' fill='%23485a3c'>W</text></svg>" />
+<head>
+    <title>opscura</title>
+    
+    <!-- سطر الأيقونة باستخدام كود الـ SVG مباشرة -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M7 8l-4 4l4 4' /><path d='M17 8l4 4l4 4' /><path d='M14 4l-4 16' /></svg>">
+</head>
 </head>
 <body>
 
@@ -60,9 +65,12 @@
         <img src="game1.jpg" alt="Gaming collection" />
       </div>
       <h3 class="collection__label">GAMING</h3>
+
     </a>
   </div>
+
 </section>
+
 
 <!-- ===== SPORTS BELOW ===== -->
 <section class="frames-section" id="sportsSection">
@@ -120,7 +128,6 @@
   <button class="cartbar__btn" id="cartbarOpen">View cart</button>
 </div>
 
-<button class="checkout-launch" id="checkoutLaunch" type="button">Open customer details</button>
 
 <!-- ===== CART DRAWER ===== -->
 <aside class="drawer" id="drawer" aria-hidden="true">
@@ -166,6 +173,50 @@
           <span>Email (optional)</span>
           <input type="email" name="email" placeholder="you@example.com" />
         </label>
+        <!-- نموذج حقول البيانات -->
+<div class="checkout_form-group">
+  <label for="shipping-zone" class="form-grid_label">المحافظة</label>
+  
+  <select id="shipping-zone" class="input_form" onchange="updateShippingCost()">
+    <option value="0" selected disabled>اختر محافظتك</option>
+    <!-- داخل المحافظة -->
+    <option value="60"> (60EGP)الشرقية</option>
+    
+    <!-- القاهرة والدلتا (80) -->
+    <option value="80">(80EGP)القاهرة</option>
+    <option value="80">(80EGP)الجيزة</option>
+    <option value="80">(80EGP)القليوبية</option>
+    <option value="80">(80EGP)الإسكندرية</option>
+    <option value="80">(80EGP)الدقهلية</option>
+    <option value="80">(80EGP)الغربية</option>
+    <option value="80">(80EGP)المنوفية</option>
+    <option value="80">(80EGP)البحيرة</option>
+    <option value="80">(80EGP)كفر الشيخ</option>
+    <option value="80">(80EGP)دمياط</option>
+    <option value="80">(80EGP)بورسعيد</option>
+    <option value="80">(80EGP)الإسماعيلية</option>
+    <option value="80">(80EGP)السويس</option>
+    
+    <!-- شمال الصعيد (90) -->
+    <option value="90">(90EGP)الفيوم</option>
+    <option value="90">(90EGP)بني سويف</option>
+    <option value="90">(90EGP)المنيا</option>
+    <option value="90">(90EGP)أسيوط</option>
+    
+    <!-- جنوب الصعيد (100) -->
+    <option value="100">(100EGP)سوهاج</option>
+    <option value="100">(100EGP)قنا</option>
+    <option value="100">(100EGP)الأقصر</option>
+    <option value="100">(100EGP)أسوان</option>
+    
+    <!-- المحافظات الحدودية (120) -->
+    <option value="120">مطروح</option>
+    <option value="120">البحر الأحمر</option>
+    <option value="120">الوادي الجديد</option>
+    <option value="120">شمال سيناء</option>
+    <option value="120">جنوب سيناء</option>
+  </select>
+</div>
         <label class="full">
           <span>Delivery address *</span>
           <input required name="address" placeholder="Street, building, area, city" />
@@ -177,7 +228,8 @@
       </div>
       <div class="checkout-summary" id="checkoutSummary"></div>
       <button type="submit" class="btn btn--solid btn--block">Confirm order</button>
-      <p class="checkout-fine">By confirming, you agree to be contacted on the phone number above. We'll send your order to our team on Telegram.</p>
+      <p class="checkout-fine">By confirming, you agree to be contacted on the phone number above.
+         We'll send your order to our team on Telegram.</p>
     </form>
   </div>
   <div class="drawer__scrim" id="checkoutScrim"></div>
