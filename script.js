@@ -165,9 +165,9 @@
   }
 
   function updateCartbarMsg(total){
-    const msg = total >= 500
+    const msg = total >= 1000
       ? "🎉 You unlocked free shipping"
-      : `Add ${Math.max(0, 500-total)} EGP more to unlock free shipping`;
+      : `Add ${Math.max(0, 1000-total)} EGP more to unlock free shipping`;
     $("#cartbarMsg").textContent = msg;
   }
 
